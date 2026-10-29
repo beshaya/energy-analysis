@@ -219,10 +219,14 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Analysis outputs and audio
+# Audio, plots, and regenerable caches
 energy_plots/
 *.mp3
 *.m4a
 *.opus
 *.wav
 *.flac
+feature_index.csv
+fit.png
+rating_features.csv
+.player_cache/
