@@ -68,6 +68,21 @@ along its energy curve. Click or drag the chart to seek; Space plays/pauses,
 computed on first open (about a minute per hour of audio) and cached in
 `.player_cache/` until the model or analysis code changes.
 
+## Spreadsheet summary
+
+```
+.venv/bin/python set_stats.py --out set_stats.tsv
+```
+
+One row per set from the feature index (rebuild it with `index_features.py ..`
+after changing features): the model's predicted energy, smoothed over 60 s, as
+
+- `progression`: one colored square per 10 minutes showing that stretch's
+  75th-percentile energy (`--segment-pct`), rounded onto the Energy Scale:
+  🟦 0–2 chill, 🟩 3–4 low, 🟨 5–6 mid, 🟧 7–8 high, 🟥 9–10
+  (`--blocks` gives block heights instead)
+- `p25`, `p50`, `p90`, `p95`: percentiles of energy over the whole set
+
 ## Features
 
 Computed per 20 s window (`FEATURE_HELP` in `energy_curve.py`):
